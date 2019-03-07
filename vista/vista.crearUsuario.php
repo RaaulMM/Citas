@@ -6,6 +6,8 @@
 
 </head>
 <body>
+	
+	
 	<form action="index.php" method="GET">
 		<input type="hidden" name="mod" value="Usuario">
 		<input type="hidden" name="ope" value="registro">

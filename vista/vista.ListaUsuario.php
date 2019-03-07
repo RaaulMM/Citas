@@ -7,6 +7,14 @@
  
 
 <body>
+	
+<?php 
+	session_start();
+		if (!isset($_SESSION['usu'])){
+		    header("location: ../index.php");
+		  }
+	?>
+
 	<h1>Usuarios</h1>
 
 	<h3>
@@ -15,7 +23,7 @@
 
 	<ul>
 		<?php 
-		session_start();
+		
 		foreach ($datos as $item) :
 		?>
 		<li>

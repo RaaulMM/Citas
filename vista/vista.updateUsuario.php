@@ -6,6 +6,12 @@
 
 </head>
 <body>
+
+	<?php 
+		if (!isset($_SESSION['usu'])){
+		    header("location: ../index.php");
+		  }
+	?>
 	<form action="index.php" method="GET">
 		<input type="hidden" name="mod" value="Usuario">
 		<input type="hidden" name="ope" value="update">

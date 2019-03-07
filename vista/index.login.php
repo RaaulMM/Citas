@@ -10,7 +10,10 @@
 		}
 	</style>
 </head>
-<body>
+<body><?php 
+
+		 ?>
+	
 <div class="divcentral">
 
 <h2>CEEP <br> Acceso Alumnado<br></h2>

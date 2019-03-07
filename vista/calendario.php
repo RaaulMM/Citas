@@ -19,20 +19,32 @@
     <!-- js BOOTSTRA -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <?=   session_start(); ?>
+    <style type="text/css">
+      .csesion{
+        position: absolute;
+        right:10%; 
+      }
+    </style>
 </head>
    
 <body><br><br>
+  <div class="container">
+  <?=   session_start(); ?>
   <?php 
-  if ($_SESSION['$usu'] == 'pepe') {
-     ?>
-    <a href="index.php?mod=Usuario&ope=Listado"> Listado Usuario</a>
-    <div class="container">
+  print_r($_SESSION) ;
+    if (!isset($_SESSION['usu'])){
+      header("location: index.php");
+    }else if (($_SESSION['usu'] == 'pepe')) {
+       ?>
+      <a href="index.php?mod=Usuario&ope=Listado"> Listado Usuario</a>
   <?php } ?>
+    
+    
+    <a class="csesion" href="index.php?mod=Usuario&ope=Csesion"> Cerrar Sesion</a>
   
   
        
-        <div class="col-12"> <h2>Hola <?=   $_SESSION['$usu'] ?></h2><div id="CalendarioWeb"></div> </div> <br>
+        <div class="col-12"> <h2>Hola <?=   $_SESSION['usu'] ?></h2><div id="CalendarioWeb"></div> </div> <br>
      </div>
 
    <script>

@@ -18,7 +18,7 @@
                  if (isset($_GET["usu"])){
                      $usu = $_GET["usu"];
                      $contraseña = $_GET["contraseña"];
-                     $_SESSION['$usu'] = $usu;
+                     
                  }
  
                  $db = Database::getInstance();
@@ -28,7 +28,7 @@
                                   ":cont" =>$contraseña]);
                  $resultado = $db->getRow();
                  if ($resultado !== false) {
-                     $usuario=$_SESSION["usu"];
+                    $_SESSION['usu'] = $usu;
                      header("Location: index.php?mod=index&ope=indexCalendario");
                      
                  }else{
@@ -61,8 +61,8 @@
 
 
         public function Listado() {
-        $datos = Usuario::getAllUsus() ;
-        require_once "vista/vista.ListaUsuario.php" ;
+            $datos = Usuario::getAllUsus() ;
+            require_once "vista/vista.ListaUsuario.php" ;
         
     }
         public function delete(){
@@ -73,7 +73,20 @@
             header('Location: index.php?mod=Usuario&ope=Listado');
         
 
-    }}
+    }
+
+    public function Csesion(){
+        session_start() ;
+        $_SESSION = [] ;
+        session_destroy();
+        
+
+        header('Location: index.php');
+
+    }
+
+
+}
  
 
  ?>

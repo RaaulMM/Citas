@@ -60,7 +60,7 @@ class Usuario {
 		public function getAllUsu(){
 			$db = Database::getInstance() ;
 			$db->doQuery("SELECT * FROM usuario WHERE usu=:usu;",
-                                 [":usu" => $_SESSION['$usu']]);
+                                 [":usu" => $_SESSION['usu']]);
 			
 			$datos = [] ;
 
